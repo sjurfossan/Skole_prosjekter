@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 
 
 # Define host and port
-HOST = 'host_ip_address'
+HOST = '10.24.70.153'
 PORT = 12345                 
 
 DIR = 20    # Direction GPIO Pin
