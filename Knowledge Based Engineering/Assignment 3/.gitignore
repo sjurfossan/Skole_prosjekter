@@ -1,0 +1,9 @@
+*.minf
+*.minp
+*.mres
+*.prt
+*.sim
+*.pyc
+.prt
+
+__pycache__

@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#"
+     xml:base="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:teapot_project="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#ordersTeapot -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#ordersTeapot">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Customer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#hasFlowRate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#hasFlowRate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#hasFlowRateGA -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#hasFlowRateGA">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#hasLastName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#hasLastName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Customer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#hasVolume -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#hasVolume">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#hasVolumeGA -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#hasVolumeGA">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Customer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Customer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Hjelmeseth -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Hjelmeseth">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Customer"/>
+        <ordersTeapot rdf:resource="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot1"/>
+        <hasLastName>Hjelmeseth</hasLastName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Stordalen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Stordalen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Customer"/>
+        <ordersTeapot rdf:resource="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot2"/>
+        <hasLastName>Stordalen</hasLastName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot"/>
+        <hasFlowRate rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</hasFlowRate>
+        <hasFlowRateGA rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.4</hasFlowRateGA>
+        <hasVolume rdf:datatype="http://www.w3.org/2001/XMLSchema#float">70.0</hasVolume>
+        <hasVolumeGA rdf:datatype="http://www.w3.org/2001/XMLSchema#float">73.2</hasVolumeGA>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/sfoss/ontologies/2023/10/teapot_project#Teapot"/>
+        <hasFlowRate rdf:datatype="http://www.w3.org/2001/XMLSchema#float">50.0</hasFlowRate>
+        <hasFlowRateGA rdf:datatype="http://www.w3.org/2001/XMLSchema#float">51.1</hasFlowRateGA>
+        <hasVolume rdf:datatype="http://www.w3.org/2001/XMLSchema#float">900.0</hasVolume>
+        <hasVolumeGA rdf:datatype="http://www.w3.org/2001/XMLSchema#float">897.4</hasVolumeGA>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+

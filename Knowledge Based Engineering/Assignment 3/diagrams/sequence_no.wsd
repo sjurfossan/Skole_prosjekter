@@ -1,0 +1,23 @@
+@startuml ifNotExists
+
+skinparam actorStyle awesome
+actor User
+
+User -> WebBrowser: Provide wanted Flow and Volume
+User -> WebBrowser: Hit Submit button
+
+WebBrowser -> Designer: wanted_flow&volume
+Designer -> Fuseki : Is there a teapot with given Flow and Volume?
+Fuseki --> Designer: Not found
+
+Designer -> TeapotGAs: Generate new teapot with given Flow and Volume
+TeapotGAs -> TeapotGAs: generate(target_volume, target_flow)
+TeapotGAs --> Designer: teapotParameters
+
+Designer -> Designer: readTeapottemplate()
+
+Designer -> Designer: writeTeapotTemplate(teapotParameters)
+Designer -> Fuseki: Store a solution and the user
+Designer --> User : Solution
+
+@enduml

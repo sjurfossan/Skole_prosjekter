@@ -1,0 +1,26 @@
+@startuml sequence
+
+
+actor       User as u
+participant Gears.py as g
+participant Gear as gear
+participant "cylinder:Cylinder" as c
+participant "motion:Motion" as m
+participant "fileSaver:FileSaver" as f
+participant box as b
+
+u -> g : run
+
+group loop 
+    g -> gear : new
+    group loop
+        gear -> c : new
+        c --> gear : return
+    end
+    g <-- gear : return
+    end
+g -> m : new
+g -> f : new
+m --> u : view motion of gears
+
+@enduml

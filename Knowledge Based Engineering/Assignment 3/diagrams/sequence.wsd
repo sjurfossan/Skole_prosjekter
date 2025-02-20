@@ -1,0 +1,24 @@
+@startuml main
+
+skinparam actorStyle awesome
+actor User
+
+User -> WebBrowser: Provide wanted Flow and Volume
+User -> WebBrowser: Hit Submit button
+
+WebBrowser -> Designer: POST Flow and Volume
+Designer -> Designer: Generate SPARQL check for Flow and Volume
+Designer -> Fuseki : SPARQL Flow and Volume
+
+Fuseki --> Designer: AVAILABLE Flow and Volume
+
+'Suppose there are no right Flow and Volume'
+Designer -> Designer: readProductTemplate(filepath)
+Designer -> Designer: generateNewProduct(filepath)
+
+Designer -> Fuseki: SPARQL update product list
+Fuseki --> Designer: Update success
+
+Designer --> User : Product info
+
+@enduml

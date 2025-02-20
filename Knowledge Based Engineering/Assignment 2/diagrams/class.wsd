@@ -1,0 +1,38 @@
+@startuml class
+
+
+
+class Gear {
+  String data
+  void methods()
+}
+class Gears {
+  String data
+  void methods()
+}
+class GearBox {
+  String data
+  void methods()
+}
+
+class motion {
+  String data
+  void methods()
+}
+class cylinder {
+  String data
+  void methods()
+}
+class FileSaver {
+  String data
+  void methods()
+}
+
+Gear o-- cylinder
+Gear --o Gears
+Gears o-- motion
+Gears o-- FileSaver
+Gears -- GearBox
+
+
+@enduml

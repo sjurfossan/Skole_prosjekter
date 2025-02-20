@@ -1,0 +1,81 @@
+@startuml Teapot
+
+class Teapot {
+    - radius_teapot: float
+    - radius_spout: float
+    + __init__(radius_teapot, radius_spout)
+    + make_teapot(radius_teapot, radius_spout)
+}
+
+class Teapot_body {
+    - radius: float
+    - radius_spout: float
+    + __init__(radius, radius_spout)
+    + teapot_body(radius, radius_spout)
+}
+
+
+
+class Spout {
+    - x: float
+    - y: float
+    - z: float
+    - radius: float
+    - radius_spout: float
+    + __init__(x, y, z, radius, radius_spout)
+    + spout_swept(x, y, z, radius, radius_spout)
+}
+
+
+class GeneticAlgorithmFlow {
+    + __init__(target_flow, population_size, mutation_rate)
+}
+
+class GeneticAlgorithmVolume {
+    + __init__(target_volume, population_size, mutation_rate)
+}
+
+class Save {
+    + __init__(folder, filename)
+}
+
+class Arc {
+    + __init__(x, y, z, normal, rotation, radius, start_angle, end_angle)
+}
+
+class Swept {
+    + __init__(path, sketch)
+    + subtract(other)
+}
+
+class Line {
+    + __init__(x1, y1, z1, x2, y2, z2)
+}
+
+class Sphere {
+    + __init__(x, y, z, radius)
+}
+
+class Cylinder {
+    + __init__(x, y, z, height, radius)
+}
+
+class Cone {
+    + __init__(x, y, z, base_radius, height)
+}
+
+Arc "n" --o "1" Swept
+Line "n" --o "1" Swept
+Sphere "n" --o "1" Teapot_body
+Cylinder "1" --o "1" Teapot_body
+Cone "1" --o "1" Teapot_body
+Swept "n" --o "1" Teapot_body
+Swept "1" --o "1" Spout
+
+Teapot_body "1" --o "1" Teapot
+Spout "1" --o "1" Teapot
+Teapot "1" o-- "1" GeneticAlgorithmFlow 
+Teapot "1" o-- "1" GeneticAlgorithmVolume 
+Teapot "1" o-- "1" Save
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml packageD
+actor User
+
+rectangle "Design Server" {
+    card d [
+        <b>Designer
+        ----
+        Genetic Alorithm
+    ]
+    card Fuseki[
+        <b>Fuseki Server
+    ]
+    card n[
+        <b>Siemens NX 
+    ]
+    database KB[
+        <b>Knowledge Base
+    ]
+}
+
+User <-> d
+d <-> Fuseki
+d <--> n
+Fuseki <--> KB
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml ifExists
+
+skinparam actorStyle awesome
+actor User
+
+User -> WebBrowser: Provide wanted Flow and Volume
+User -> WebBrowser: Hit Submit button
+
+WebBrowser -> Designer: wanted_flow&volume
+Designer -> Fuseki : Is there a teapot with given Flow and Volume?
+Fuseki --> Designer: Yes
+
+Designer -> Fuseki: SPARQL Retrrieve a path to solution (ex: a file)
+Fuseki --> Designer: Path to solution
+
+Designer --> User : Download link to Solution
+
+@enduml
