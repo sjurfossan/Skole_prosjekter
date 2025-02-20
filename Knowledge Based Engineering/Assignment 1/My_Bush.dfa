@@ -1,0 +1,51 @@
+#! NX/KF 4.0
+DefClass: My_Bush (ug_base_part);
+    #length
+    (number parameter) length: 100;
+    (number parameter) max_ext_diameter: 80;	
+    (number parameter) max_ext_length: 40;	
+    (number parameter) min_ext_diameter: 70;	
+    (number parameter) min_ext_length: length:-max_ext_length:;
+    (number parameter) hole_diameter: 60;	
+
+(child) max_cylinder: 
+    {
+        class, ug_cylinder;
+        diameter, max_ext_diameter:;
+	height, max_ext_length:;
+	Origin, Point(0,0,0);
+	Direction, Vector(0,0,1);
+    };
+
+(child) min_cylinder: 
+    {
+        class, ug_cylinder;
+        diameter, min_ext_diameter:;
+	height, min_ext_length:;
+	Origin, Point(0,0,max_ext_length:);
+	Direction, Vector(0,0,1);
+	Operation, Unite;
+	Target, {max_cylinder:};
+    };
+
+(child) hole: 
+    {
+        class, ug_cylinder;
+        diameter, hole_diameter:;
+	height, length:;
+	Origin, Point(0,0,0);
+	Direction, Vector(0,0,1);
+	Operation, Subtract;
+	Target, {min_cylinder:};
+    };
+
+(child) window: 
+    {
+        class, ug_block;
+	height, 70;
+	width, 5;
+	length, 5;
+	referenceFrame, framexy(point(-35, 2.5, 72.5), vector(0, -1, 0), vector(0, 0, -1));
+	Operation, Subtract;
+	Target, {min_cylinder:};
+    };

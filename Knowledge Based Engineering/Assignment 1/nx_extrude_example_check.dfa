@@ -1,0 +1,51 @@
+#! UG/KF 17.0
+DefClass: nx_extrude_example_check (ug_base_part);
+#Set some default parameters for the roof
+(number parameter) roof_width: 100;
+(number parameter) roof_height: 100;
+(number parameter) roof_length: 100;
+(number parameter) roof_thickness: 20;
+
+(number parameter) x: 0;
+(number parameter) y: 0;
+(number parameter) z: 0;
+
+(Child) Curve1: {
+	Class;		ug_spline_cntl;
+	Degree;		5;
+	Periodic?;	FALSE;
+	Points;		{{Point(x:, y:, z:)},
+			 {Point(x:+roof_length:, y:, z:+roof_height:)},
+			 {Point(x:+roof_length:, y:, z:+roof_heigth:+roof_thickness:)},
+			 {Point(x:, y:, z:+roof_thickness:)},
+			 {Point(x:, y:, z:)}
+			};
+};
+
+(Child) Line: {
+	Class;		nx_line;
+	Start_Point;	Curve1:End_Point:;
+	End_Point;	Curve1:Start_Point:;
+};
+
+(Child) Direction: {
+	Class;		nx_direction;
+	Vector;		vector(0,1,0);
+};
+
+(Child) Section1: {
+	Class;		ug_section;
+	Chain_Rules;	{Single_Curves, Curve1:};
+};
+
+(Child) Extrude1: {
+	Class;				nx_extrude;
+	Section;			Section1:;
+	Direction;			Direction:;
+	Draft_Enabled;			true;
+	Draft_Draft_Type;		simple_from_profile;
+	Draft_Draft_Angle;		10;
+	Limits_Limit_Opt;		nonsymmetric_offset;
+	Limits_Start_Extend_Value;	-500;
+	Limits_End_Extend_Value;	 500;
+};

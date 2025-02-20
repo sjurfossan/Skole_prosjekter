@@ -1,0 +1,65 @@
+#! NX/KF 17.0 - Roof_check
+DefClass:Roof_check (ug_base_part);
+#Set some default parameters for the roof
+(number parameter) roof_width: 100;
+(number parameter) roof_height: 100;
+(number parameter) roof_length: 100;
+(number parameter) roof_thickness: 20;
+
+(number parameter) x: 0;
+(number parameter) y: 0;
+(number parameter) z: 0;
+
+#Forming a profile for the roof
+(child) roof_line_1: {
+    Class, ug_line;
+    Start_Point, Point(x:, y:, z:);
+    End_Point, Point(x:+roof_length, y:, z:+roof_height);
+};
+
+(child) roof_line_2: {
+    Class, ug_line;
+    Start_Point, Point(x:+roof_length, y:, z:+roof_height);
+    End_Point, Point(x:+roof_length, y:, z:+roof_heigth+roof_thickness);
+};
+
+(child) roof_line_3: {
+    Class, ug_line;
+    Start_Point, Point(x:-roof_length, y:, z:+roof_height+roof_thickness);
+    End_Point, Point(x:, y:, z:+roof_thickness);
+};
+
+(child) roof_line_4: {
+    Class, ug_line;
+    Start_Point, Point(x:, y:, z:+roof_thickness);
+    End_Point, Point(x:, y:, z:);
+};
+
+(child) roof_width_direction: {
+    Class, ug_line;
+    Start_Point, Point(x:, y:, z:);
+    End_Point, Point(x:, y:+roof_width, z:);
+};
+
+
+#Roof profile
+(child) roof_profile: {
+    Class, ug_curve_join;
+    Profile, {roof_line_1:, roof_line_2:, roof_line_3:, roof_line_4:};
+};
+
+(child) roof_direction: {
+    Class, ug_curve_join;
+    Profile, {roof_width_direction};
+}
+
+#Extruding the roof
+(child) roof_123: {
+  class, ug_swept;
+  guide, {{forward, roof_direction:}};
+  section, {{forward, roof_profile:}};
+  scaling, {scale_constant, 1};
+  alignment_init, parameter;
+  orientation, {orientation_fixed};
+  tolerances, {0, 0, 0};
+};

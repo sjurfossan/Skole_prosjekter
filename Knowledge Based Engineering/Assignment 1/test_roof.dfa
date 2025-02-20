@@ -1,0 +1,11 @@
+#! UG/KF 17.0
+DefClass: test_roof (ug_base_part);
+
+(Canonical Point Parameter Modifiable)    ex_start_pt:  Point(-1,-1,0);
+(Canonical Point Parameter Modifiable)    ex_end_pt:    Point(1,1,0);
+
+(Child) ex_line: {
+    Class,        ug_line,
+    Start_Point,  ex_start_pt:,
+    End_Point,    ex_end_pt:
+};

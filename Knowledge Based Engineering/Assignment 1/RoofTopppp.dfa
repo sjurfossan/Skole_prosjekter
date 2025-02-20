@@ -1,0 +1,47 @@
+#! UG/KF 17.0
+DefClass:RoofTopppp (ug_base_part);
+#Set some default parameters for the roof
+(number parameter) roof_width: 100;
+(number parameter) roof_height: 100;
+(number parameter) roof_length: 100;
+(number parameter) roof_thickness: 20;
+
+(number parameter) x: 0;
+(number parameter) y: 0;
+(number parameter) z: 0;
+
+#Forming a profile for the roof
+(child) roof_line_1: {
+    Class, ug_line;
+    Start_Point, Point(x:, y:, z:);
+    End_Point, Point(x:+roof_length:, y:, z:+roof_height:);
+};
+
+(child) roof_line_2: {
+    Class, ug_line;
+    Start_Point, Point(x:+roof_length:, y:, z:+roof_height:);
+    End_Point, Point(x:+roof_length:, y:, z:+roof_heigth:+roof_thickness:);
+};
+
+(child) roof_line_3: {
+    Class, ug_line;
+    Start_Point, Point(x:-roof_length:, y:, z:+roof_height:+roof_thickness:);
+    End_Point, Point(x:, y:, z:+roof_thickness:);
+};
+
+(child) roof_line_4: {
+    Class, ug_line;
+    Start_Point, Point(x:, y:, z:+roof_thickness:);
+    End_Point, Point(x:, y:, z:);
+};
+
+(child) roof_width_direction: {
+    Class, ug_line;
+    Start_Point, Point(x:, y:, z:);
+    End_Point, Point(x:, y:+roof_width:, z:);
+};
+
+(child) section_1: {
+    Class, ug_section;
+    Chain_Rules, {Single_Curves, }
+};
